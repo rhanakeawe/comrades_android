@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">comrades</string>
+    <string name="splash">splash</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="comrades">Comrades</string>
+    <string name="calender">Calender</string>
+</resources>
