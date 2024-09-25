@@ -36,7 +36,8 @@ class RegisterActivity : ComponentActivity() {
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             val emailInput = emailBox.text.toString()
             val passwordInput = passwordBox.text.toString()
-            enterButton.isEnabled = emailInput.isNotEmpty() && passwordInput.isNotEmpty()
+            val passwordBoxConfirm = passwordBoxConfirm.toString()
+            enterButton.isEnabled = emailInput.isNotEmpty() && passwordInput.isNotEmpty() && (passwordInput == passwordBoxConfirm)
         }
         override fun afterTextChanged(p0: Editable?) {}
     }
