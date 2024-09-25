@@ -9,20 +9,30 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
-import java.util.Date
-
-class DateEvent {
-    private lateinit var type : String
-    private lateinit var date : String
-    fun setType(typeInput:String) {
-        type = typeInput
-    }
-    fun setDate(dateInput:String) {
-        date = dateInput
-    }
-}
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
 
 class CalenderActivity : ComponentActivity() {
+
+    private val db by lazy {
+        Room.databaseBuilder(
+            applicationContext,
+            EventDatabase::class.java,
+            "events.db"
+        ).build()
+    }
+
+    private val viewModel by viewModels<EventViewModel>(
+        factoryProducer = {
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    return EventViewModel(db.dao) as T
+                }
+            }
+        }
+    )
 
     private lateinit var calendar: CalendarView
     private lateinit var dateText: TextView
@@ -60,6 +70,5 @@ class CalenderActivity : ComponentActivity() {
         // TODO: Add Event To The Firebase Data
         Toast.makeText(this, "$type on $date Added!",
             Toast.LENGTH_LONG).show();
-        var dateEvent : DateEvent
     }
 }
