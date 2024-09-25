@@ -1,8 +1,11 @@
 package com.example.comrades
 
+import android.app.ActivityOptions
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -20,6 +23,16 @@ class EventsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
+        val backButton = Button(this)
+
+        backButton.setOnClickListener() {
+            startActivity(
+                Intent(this, CalenderActivity::class.java),
+                ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            finish()
+        }
+
+        layout.addView(backButton)
         setContentView(layout)
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
