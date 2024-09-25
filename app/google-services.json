@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "120688003217",
+    "project_id": "comrades-android",
+    "storage_bucket": "comrades-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120688003217:android:16831b2ffbd18cc05b1730",
+        "android_client_info": {
+          "package_name": "com.example.comrades"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl2cszfoL7bCUqTwgglQrzyfT6UHSXkYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

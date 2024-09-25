@@ -7,4 +7,9 @@
     <string name="email">Email</string>
     <string name="comrades">Comrades</string>
     <string name="calender">Calender</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="user">User</string>
+    <string name="log_out">Log Out</string>
+    <string name="set">Set</string>
 </resources>

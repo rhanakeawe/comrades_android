@@ -1,28 +1,23 @@
 package com.example.comrades
 
 import android.app.ActivityOptions
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-
-class LoginActivity : ComponentActivity() {
-
+class RegisterActivity : ComponentActivity() {
     private lateinit var enterButton: Button
     private lateinit var emailBox: EditText
     private lateinit var passwordBox: EditText
-    private lateinit var registerText: TextView
+    private lateinit var passwordBoxConfirm : EditText
 
     private lateinit var mAuth : FirebaseAuth
 
@@ -46,7 +41,7 @@ class LoginActivity : ComponentActivity() {
         override fun afterTextChanged(p0: Editable?) {}
     }
 
-    private fun loginSuccess() {
+    private fun registerSuccess() {
         startActivity(Intent(this, CalenderActivity::class.java),
             ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         finish()
@@ -54,7 +49,7 @@ class LoginActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.loginmenu)
+        setContentView(R.layout.register)
         enableEdgeToEdge()
 
         mAuth = FirebaseAuth.getInstance()
@@ -62,12 +57,7 @@ class LoginActivity : ComponentActivity() {
         enterButton = findViewById(R.id.enterbutton)
         emailBox = findViewById(R.id.email_box)
         passwordBox = findViewById(R.id.password_box)
-        registerText = findViewById(R.id.registerhere)
-
-        registerText.setOnClickListener() {
-            startActivity(Intent(this, RegisterActivity::class.java),
-                ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-        }
+        passwordBoxConfirm = findViewById(R.id.password_box_confirm)
 
         emailBox.addTextChangedListener(textWatcher)
         passwordBox.addTextChangedListener(textWatcher)
@@ -76,21 +66,17 @@ class LoginActivity : ComponentActivity() {
             val email = emailBox.text.toString()
             val password = emailBox.text.toString()
 
-            mAuth.signInWithEmailAndPassword(email, password)
+            mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                     this
                 ) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithCustomToken:success")
-                        loginSuccess()
+                        Toast.makeText(this, "Account Created",
+                            Toast.LENGTH_SHORT).show()
+                        registerSuccess()
                     } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithCustomToken:failure", task.exception)
-                        Toast.makeText(
-                            this, "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this, "Authentification failed.",
+                            Toast.LENGTH_SHORT).show()
                     }
                 }
 
