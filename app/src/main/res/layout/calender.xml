@@ -12,9 +12,9 @@
         android:enabled="false"
         android:text="@string/set"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eventsButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/logoutButton"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Spinner
@@ -42,9 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="87dp" />
+        app:layout_constraintBottom_toTopOf="@+id/eventNameBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userText"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/userText"
@@ -52,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="@string/user"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/eventNameBox"
+        app:layout_constraintBottom_toTopOf="@+id/calendertext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +65,13 @@
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="824dp"
-        android:layout_marginEnd="308dp"
         android:text="@string/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
 
     <EditText
         android:id="@+id/eventNameBox"
@@ -78,19 +83,20 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userText" />
+        app:layout_constraintTop_toBottomOf="@+id/calendertext" />
 
     <Button
         android:id="@+id/eventsButton"
         style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="304dp"
-        android:layout_marginTop="824dp"
         android:text="Events"
-        app:layout_constraintBottom_toBottomOf="@+id/logoutButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
 </androidx.constraintlayout.widget.ConstraintLayout>
