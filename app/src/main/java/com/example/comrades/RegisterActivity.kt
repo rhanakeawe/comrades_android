@@ -63,7 +63,7 @@ class RegisterActivity : ComponentActivity() {
         emailBox.addTextChangedListener(textWatcher)
         passwordBox.addTextChangedListener(textWatcher)
 
-        enterButton.setOnClickListener() {
+        enterButton.setOnClickListener {
             val email = emailBox.text.toString()
             val password = emailBox.text.toString()
 

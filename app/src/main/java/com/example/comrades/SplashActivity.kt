@@ -17,7 +17,7 @@ class SplashActivity : ComponentActivity() {
         setContentView(R.layout.splash)
         enableEdgeToEdge()
 
-        Thread() {
+        Thread {
             val mp : MediaPlayer = MediaPlayer.create(this, R.raw.sound)
             mp.start()
             val source : ImageDecoder.Source = ImageDecoder.createSource(
@@ -30,7 +30,7 @@ class SplashActivity : ComponentActivity() {
                 (drawable as? AnimatedImageDrawable)?.start()
             }
 
-            mp.setOnCompletionListener() {
+            mp.setOnCompletionListener {
                 startActivity(Intent(this, LoginActivity::class.java),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             }

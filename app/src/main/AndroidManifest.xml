@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".CalenderActivity"/>
+        <activity android:name=".CalenderActivity"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".RegisterActivity"/>
-        <activity android:name=".EventsActivity"/>
     </application>
 
 </manifest>

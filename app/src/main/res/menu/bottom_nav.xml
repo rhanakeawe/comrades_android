@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Create"
+        android:id="@+id/createItem"
+        android:icon="@drawable/baseline_add_box_24"/>
+    <item
+        android:title="Events"
+        android:id="@+id/eventsItem"
+        android:icon="@drawable/baseline_density_small_24"/>
+    <item
+        android:title="Account"
+        android:id="@+id/accountItem"
+        android:icon="@drawable/baseline_account_circle_24"/>
+</menu>

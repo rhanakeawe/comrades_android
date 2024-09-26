@@ -64,7 +64,7 @@ class LoginActivity : ComponentActivity() {
         passwordBox = findViewById(R.id.password_box)
         registerText = findViewById(R.id.registerhere)
 
-        registerText.setOnClickListener() {
+        registerText.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java),
                 ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
@@ -72,7 +72,7 @@ class LoginActivity : ComponentActivity() {
         emailBox.addTextChangedListener(textWatcher)
         passwordBox.addTextChangedListener(textWatcher)
 
-        enterButton.setOnClickListener() {
+        enterButton.setOnClickListener {
             val email = emailBox.text.toString()
             val password = emailBox.text.toString()
 
