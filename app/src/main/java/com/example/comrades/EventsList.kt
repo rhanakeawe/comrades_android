@@ -3,13 +3,14 @@ package com.example.comrades
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.widget.ScrollView
+import android.widget.Space
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar.LayoutParams
 import androidx.cardview.widget.CardView
@@ -18,18 +19,18 @@ import com.google.firebase.firestore.firestore
 
 class EventsList : Fragment(R.layout.fragment_events_list) {
 
-    private lateinit var eventsLayout : LinearLayout
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        eventsLayout = LinearLayout(requireContext())
-        eventsLayout.orientation = LinearLayout.VERTICAL
         val db = Firebase.firestore
         val eventsRef = db.collection("events")
+
+        val view = inflater.inflate(R.layout.fragment_events_list, container, false)
+
+        val layout : LinearLayout = view.findViewById(R.id.linearLayout)
 
         val query = eventsRef.orderBy("eventDate")
 
@@ -43,11 +44,14 @@ class EventsList : Fragment(R.layout.fragment_events_list) {
                     list += "Type: " + document.data.get("eventType").toString() + "\n"
                     list += "User: " + document.data.get("eventUser").toString() + "\n\n"
                     Log.d(TAG, list)
-                    val scrollView = ScrollView(requireContext())
 
                     val cardView = CardView(requireContext())
-                    val layoutparams = LayoutParams(1000,1000)
-                    cardView.layoutParams = layoutparams
+                    val layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT)
+                    layoutParams.setMargins(20,40,20,40)
+                    cardView.layoutParams = layoutParams
+                    cardView.setContentPadding(70,50,70,50)
+                    cardView.radius = 20F
+                    cardView.elevation = 50F
 
                     val cardRelativeLayout = RelativeLayout(requireContext())
 
@@ -55,18 +59,18 @@ class EventsList : Fragment(R.layout.fragment_events_list) {
                     eventsListText.textSize = 20F
                     eventsListText.text = list
                     eventsListText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
+                    eventsListText.gravity = Gravity.CENTER_HORIZONTAL and Gravity.CENTER_VERTICAL
 
                     cardRelativeLayout.addView(eventsListText)
                     cardView.addView(cardRelativeLayout)
-                    scrollView.addView(cardView)
-                    eventsLayout.addView(scrollView)
+                    layout.addView(cardView)
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
 
-        return eventsLayout
+        return view
     }
 
 }

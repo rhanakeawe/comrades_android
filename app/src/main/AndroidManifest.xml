@@ -14,16 +14,20 @@
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Comrades">
+        </activity>
+        <activity android:name=".LoginActivity"/>
+        <activity
+            android:name=".CalenderActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".CalenderActivity"
-            android:theme="@style/AppTheme"/>
         <activity android:name=".RegisterActivity"/>
-    </application>
+        </application>
+
 
 </manifest>
