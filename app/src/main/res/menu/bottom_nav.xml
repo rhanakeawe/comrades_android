@@ -8,11 +8,11 @@
         android:title="Events"
         android:id="@+id/eventsItem"
         android:icon="@drawable/baseline_density_small_24"/>
+    <item android:title="Friends"
+        android:id="@+id/friendsItem"
+        android:icon="@drawable/friend_nav"/>
     <item
         android:title="Account"
         android:id="@+id/accountItem"
         android:icon="@drawable/baseline_account_circle_24"/>
-    <item android:title="Friends"
-        android:id="@+id/friendsItem"
-        android:icon="@drawable/friend_nav"/>
 </menu>
