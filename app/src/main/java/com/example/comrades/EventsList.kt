@@ -39,10 +39,10 @@ class EventsList : Fragment(R.layout.fragment_events_list) {
                 for (document in documents) {
                     var list = ""
                     Log.d(TAG, "${document.id} => ${document.data}")
-                    list += "Name: " + document.data.get("eventName").toString() + "\n"
-                    list += "Date: " + document.data.get("eventDate").toString() + "\n"
-                    list += "Type: " + document.data.get("eventType").toString() + "\n"
-                    list += "User: " + document.data.get("eventUser").toString() + "\n\n"
+                    list += "Name: " + document.data["eventName"].toString() + "\n"
+                    list += "Date: " + document.data["eventDate"].toString() + "\n"
+                    list += "Type: " + document.data["eventType"].toString() + "\n"
+                    list += "User: " + document.data["eventUser"].toString() + "\n\n"
                     Log.d(TAG, list)
 
                     val cardView = CardView(requireContext())

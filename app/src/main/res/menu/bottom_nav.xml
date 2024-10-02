@@ -12,4 +12,7 @@
         android:title="Account"
         android:id="@+id/accountItem"
         android:icon="@drawable/baseline_account_circle_24"/>
+    <item android:title="Friends"
+        android:id="@+id/friendsItem"
+        android:icon="@drawable/friend_nav"/>
 </menu>
